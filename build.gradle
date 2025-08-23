@@ -47,14 +47,10 @@ tasks.withType(Javadoc).configureEach {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            from components.java
-            // attach source/javadoc jars created by withSourcesJar/withJavadocJar
-            artifact tasks.sourcesJar
-            artifact tasks.javadocJar
+            from components.java   // auto-includes main jar + sourcesJar + javadocJar
             pom {
                 name = 'order-tracking-common'
                 description = 'Shared models/DTOs/events for Order Tracking microservices'
-                // optional but nice:
                 licenses {
                     license {
                         name = 'The MIT License'
@@ -69,5 +65,5 @@ publishing {
             }
         }
     }
-    // No repository block for JitPack — it builds & hosts for you.
+    // No repositories{} for JitPack
 }
