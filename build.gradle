@@ -1,12 +1,12 @@
 plugins {
     id 'java-library'
-    id 'maven-publish' // JitPack reads this to publish your AAR/JAR
+    id 'maven-publish' // JitPack inspects this publication
 }
 
-// JitPack expects: com.github.<GitHubUserOrOrg>:<RepoOrModule>:<Tag>
-// Let JitPack override via -Pgroup/-Pversion, but provide sane defaults for local builds.
+// JitPack coordinates: com.github.<GitHubUserOrOrg>:<RepoOrModule>:<Tag>
+// JitPack will pass -Pgroup/-Pversion; keep sensible local defaults.
 group    = findProperty("group")   ?: "com.github.arunsingh8775"
-version  = findProperty("version") ?: "0.0.0"    // JitPack replaces with your Git tag (e.g., v1.0.0)
+version  = findProperty("version") ?: "0.0.0"
 description = "Order Tracking Common"
 
 java {
@@ -38,7 +38,7 @@ tasks.test {
     useJUnitPlatform()
 }
 
-// Optional: silence strict Javadoc warnings on JDK 17
+// Optional: quieter Javadoc on JDK 17
 tasks.withType(Javadoc).configureEach {
     options.addBooleanOption('Xdoclint:none', true)
     options.addStringOption('encoding', 'UTF-8')
@@ -48,14 +48,26 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            artifact sourcesJar
-            artifact javadocJar
+            // attach source/javadoc jars created by withSourcesJar/withJavadocJar
+            artifact tasks.sourcesJar
+            artifact tasks.javadocJar
             pom {
                 name = 'order-tracking-common'
                 description = 'Shared models/DTOs/events for Order Tracking microservices'
+                // optional but nice:
+                licenses {
+                    license {
+                        name = 'The MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/arunsingh8775/order-tracking-common'
+                    connection = 'scm:git:https://github.com/arunsingh8775/order-tracking-common.git'
+                    developerConnection = 'scm:git:ssh://git@github.com/arunsingh8775/order-tracking-common.git'
+                }
             }
         }
     }
-    // ❌ Do NOT declare a repository for JitPack.
-    // JitPack will build from source and serve the artifact automatically.
+    // No repository block for JitPack — it builds & hosts for you.
 }
