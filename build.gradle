@@ -3,14 +3,12 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.example'          // change to your domain/org if you want
-version = '1.0.0'              // use proper release versions (no SNAPSHOT for publishing)
+group = 'com.example'
+version = '1.0.0'
 description = 'Order Tracking Common'
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
+    toolchain { languageVersion = JavaLanguageVersion.of(17) }
     withSourcesJar()
     withJavadocJar()
 }
@@ -19,18 +17,21 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    jacksonVersion = '2.17.2'
+    lombokVersion  = '1.18.32'
+    junitVersion   = '5.10.3'
+}
+
 dependencies {
-    // Only include what your models need
-    api 'com.fasterxml.jackson.core:jackson-databind'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    api "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
+tasks.test { useJUnitPlatform() }
 
 publishing {
     publications {
