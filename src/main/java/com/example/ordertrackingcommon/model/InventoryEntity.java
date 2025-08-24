@@ -8,8 +8,6 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-import javax.xml.validation.Schema;
-
 @Entity
 @Table(name = "inventory")
 @Data
