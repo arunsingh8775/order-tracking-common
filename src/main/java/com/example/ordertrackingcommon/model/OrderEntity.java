@@ -2,6 +2,8 @@ package com.example.ordertrackingcommon.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -23,7 +25,7 @@ public class OrderEntity {
     @Enumerated(EnumType.STRING)
     private OrderStatus status; // Enum: PENDING, COMPLETED, CANCELLED
 
-    private Double totalAmount;
+    private BigDecimal totalAmount;
 
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus; // Enum: NOT_PAID, PAID
