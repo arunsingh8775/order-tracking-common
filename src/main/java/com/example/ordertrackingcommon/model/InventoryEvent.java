@@ -13,4 +13,5 @@ public class InventoryEvent {
     private String productId;
     private Integer qty;
     private InventoryStatus status;
+    private Double amount;
 }

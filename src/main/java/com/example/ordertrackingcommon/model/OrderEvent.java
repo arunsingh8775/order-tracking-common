@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderEvent {
-    private String eventType;   // "OrderCreated", "PaymentCompleted", etc.
+    private String eventType;   // "OrderCreated",
     private Long orderId;
     private String userId;
     private String productId;

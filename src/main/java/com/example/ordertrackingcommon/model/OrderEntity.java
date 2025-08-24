@@ -30,11 +30,6 @@ public class OrderEntity {
 
     private LocalDateTime paymentDate;
 
-    @Enumerated(EnumType.STRING)
-    private ShippingStatus shippingStatus; // Enum: NOT_SHIPPED, SHIPPED
-
-    private LocalDateTime shippingDate;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
 }
