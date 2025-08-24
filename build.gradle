@@ -33,6 +33,7 @@ dependencies {
 
     api 'org.hibernate.orm:hibernate-core:6.2.6.Final'
     api 'jakarta.validation:jakarta.validation-api:3.0.2'
+    api 'io.swagger.core.v3:swagger-annotations:2.2.22'
 
     // Lombok
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
