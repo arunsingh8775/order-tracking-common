@@ -8,6 +8,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "inventory")
 @Data
@@ -27,5 +29,5 @@ public class InventoryEntity {
 
     @Column(name = "price")
     @Min(0)
-    private Double price;
+    private BigDecimal price;
 }
