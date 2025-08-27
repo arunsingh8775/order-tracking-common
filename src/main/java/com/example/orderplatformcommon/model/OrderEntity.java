@@ -1,4 +1,4 @@
-package com.example.ordertrackingcommon.model;
+package com.example.orderplatformcommon.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

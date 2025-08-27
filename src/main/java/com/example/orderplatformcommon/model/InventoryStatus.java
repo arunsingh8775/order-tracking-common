@@ -1,4 +1,4 @@
-package com.example.ordertrackingcommon.model;
+package com.example.orderplatformcommon.model;
 
 public enum InventoryStatus {
     RESERVED,

@@ -7,7 +7,7 @@ plugins {
 // JitPack will pass -Pgroup/-Pversion; keep sensible local defaults.
 group    = findProperty("group")   ?: "com.github.arunsingh8775"
 version  = findProperty("version") ?: "0.0.0"
-description = "Order Tracking Common"
+description = "Order Platform Common"
 
 java {
     toolchain { languageVersion = JavaLanguageVersion.of(17) }
