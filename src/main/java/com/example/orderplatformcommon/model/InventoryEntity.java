@@ -1,24 +1,18 @@
 package com.example.orderplatformcommon.model;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
-@Entity
-@Table(name = "inventory")
 @Data
-@NoArgsConstructor            // JPA needs a no-args ctor
 public class InventoryEntity {
-
-    @Id
+    @JsonAlias({"productId","product_id"})
     private String productId;
 
+    @JsonAlias({"productName","product_name"})
     private String productName;
 
+    @JsonAlias({"availableQty","available_qty"})
     private Integer availableQty;
 
-    @Column(precision = 38, scale = 2)
-    private BigDecimal price;
+    private java.math.BigDecimal price;
 }
