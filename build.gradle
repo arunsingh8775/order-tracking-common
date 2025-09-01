@@ -6,7 +6,7 @@ plugins {
 // JitPack coordinates: com.github.<GitHubUserOrOrg>:<RepoOrModule>:<Tag>
 // JitPack will pass -Pgroup/-Pversion; keep sensible local defaults.
 group    = findProperty("group")   ?: "com.github.arunsingh8775"
-version  = findProperty("version") ?: "1.0.18"
+version  = findProperty("version") ?: "1.0.19"
 description = "Order Platform Common"
 
 java {
